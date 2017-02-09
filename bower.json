@@ -1,0 +1,10 @@
+{
+  "name": "picker",
+  "desc": "选择器插件，所有选择器的基类",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "~1.12.0",
+    "class": "feather-components/class",
+    "overlay": "feather-components/overlay"
+  }
+}
