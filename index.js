@@ -9,11 +9,11 @@ if(typeof define == 'function' && define.amd){
         require('overlay')
     );
 }else{
-    window.jQuery.picker = factory(window.jQuery, window.jQuery.klass, window.jQuery.overlay);
+    factory(window.jQuery, window.jQuery.klass, window.jQuery.overlay);
 }
 })(function($, Class, Overlay){
 
-return Class.extend('Event', {
+return $.picker = Class.extend('Event', {
     initialize: function(options){
         this.options = $.extend({
             container: document.body,
