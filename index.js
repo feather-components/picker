@@ -61,7 +61,6 @@ return $.picker = Class.extend('Event', {
         });
 
         self.on('select', function(){
-            console.log()
             self.$dom && self.options.closeAfterSelect && self.close();
         });
     },
