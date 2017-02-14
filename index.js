@@ -18,7 +18,8 @@ return $.picker = Class.extend('Event', {
         this.options = $.extend({
             container: document.body,
             dom: null,
-            className: ''
+            className: '',
+            closeAfterSelect: true
         }, options);
 
         this.create();
@@ -57,6 +58,11 @@ return $.picker = Class.extend('Event', {
 
         self.o2s(document, 'click', function(e){
             self.close();
+        });
+
+        self.on('select', function(){
+            console.log()
+            self.$dom && self.options.closeAfterSelect && self.close();
         });
     },
 
