@@ -87,7 +87,7 @@ return $.picker = Class.extend('Event', {
         var xy = self.$dom.offset(), size = self.$overlay.getSize();
         var scrollTop = $(window).scrollTop();
 
-        if(scrollTop + size.height < xy.top){
+        if(scrollTop + $(window).height() < xy.top + size.height){
             self.$overlay.setPos(xy.left, xy.top - size.height - 1);
         }else{
             self.$overlay.setPos(xy.left, xy.top + self.$dom.outerHeight() + 1);
