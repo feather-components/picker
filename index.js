@@ -53,11 +53,14 @@ return $.picker = Class.extend('Event', {
 
         self.o2s(self.$dom, 'click', function(e){
             self.open();
-            e.stopPropagation();
         });
 
         self.o2s(document, 'click', function(e){
-            self.close();
+            var target = e.target;
+
+            if(target !== self.$dom.get(0) && target !== self.$picker.get(0) && !self.$picker.has(target).length){
+                self.close();
+            }
         });
 
         self.on('select', function(){
