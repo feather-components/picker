@@ -8,6 +8,7 @@
     background: #fff;
     border-radius: 3px;
     position: absolute;
+    overflow: hidden;
 }
 
 .ui3-picker a{
