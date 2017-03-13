@@ -19,7 +19,8 @@ return $.picker = Class.extend('Event', {
             container: document.body,
             dom: null,
             className: '',
-            closeAfterSelect: true
+            closeAfterSelect: true,
+            closeOnWindowScroll: true
         }, options);
 
         this.create();
@@ -66,6 +67,10 @@ return $.picker = Class.extend('Event', {
         self.on('select', function(){
             self.$dom && self.options.closeAfterSelect && self.close();
         });
+
+        self.options.closeOnWindowScroll && self.o2s(window, 'mousewheel', function(){
+            self.close();
+        })
     },
 
     open: function(){
@@ -104,6 +109,7 @@ return $.picker = Class.extend('Event', {
         self.$overlay = null;
         self.$picker = null;
         self.$dom && self.ofs(self.$dom, 'click');
+        self.options.closeOnWindowScroll && self.ofs(window, 'mousewheel');
     }
 });
 
