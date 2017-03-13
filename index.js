@@ -64,13 +64,15 @@ return $.picker = Class.extend('Event', {
             }
         });
 
-        self.on('select', function(){
-            self.$dom && self.options.closeAfterSelect && self.close();
-        });
+        if(self.$dom){
+            self.options.closeAfterSelect && self.on('select', function(){
+                self.close();
+            });
 
-        self.options.closeOnWindowScroll && self.o2s(window, 'mousewheel', function(){
-            self.close();
-        })
+            self.options.closeOnWindowScroll && self.o2s(window, 'mousewheel', function(){
+                self.close();
+            })
+        }
     },
 
     open: function(){
